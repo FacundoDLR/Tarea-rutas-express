@@ -9,3 +9,9 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+app.get('/NyA/:nombre/:apellido', (req, res) => {
+    const name = req.params.nombre;
+    const lastName = req.params.apellido
+    res.send(`<p>Hola ${name} ${lastName} 👋</p>`)
+  })
