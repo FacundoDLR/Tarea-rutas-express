@@ -1,0 +1,24 @@
+{
+  "name": "tarea-de-rutas-con-express",
+  "version": "1.0.0",
+  "description": "armar un servidor node con express que cuente con rutas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FacundoDLR/Tarea-rutas-express.git"
+  },
+  "author": "Facundo De los Rios",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FacundoDLR/Tarea-rutas-express/issues"
+  },
+  "homepage": "https://github.com/FacundoDLR/Tarea-rutas-express#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
