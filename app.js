@@ -49,9 +49,9 @@ app.get('/', (req, res) => {
   <ul>
   <li>Primer ruta: intercambiar las palabras "nombre y "apellido" por los que usted desee.</li>
   <li>Segunda ruta: intercambiar las palabras "divisor y "dividendo" por los numeros que usted desee.</li>
-  <li>Tercer ruta:Nos traera una lista de cosas en formato JSON</li>
-  <li>Cuarta ruta:intercambiar la palabra "nombre" por un articulo de la lista cosas para buscarlo individualmente</li>
-  <li>Quinta ruta:</li>
+  <li>Tercer ruta: Nos traera una lista de cosas en formato JSON</li>
+  <li>Cuarta ruta: intercambiar la palabra "nombre" por un articulo de la lista cosas para buscarlo individualmente</li>
+  <li>Quinta ruta: Intercambiar la palabra "long" por un numero para que devuelva la longitud de numero de la serie de fibonacci, caso que el numero sea <= 0 devolvera los primeros 20 valores de la serie de fibonacci.</li>
   </ul>
 
   <h4>Lista de rutas con formato de uso</h4>
@@ -60,7 +60,7 @@ app.get('/', (req, res) => {
   <li>http://localhost:3000/div/:divisor/:dividendo</li>
   <li>http://localhost:3000/cosas</li>
   <li>http://localhost:3000/cosas/:nombre</li>
-  <li>http://localhost:3000/</li>
+  <li>http://localhost:3000/fibonacci/:long</li>
   </ol>
   `)
 })
@@ -115,3 +115,33 @@ app.get('/cosas/:articulo', (req, res) => {
         })
     }
 });
+
+app.get('/fibonacci/:long', (req, res) => {
+
+    let long = Number(req.params.long);
+
+    const fibonacci = (long) => {
+
+        let x = 0;
+        let arreglo = [];
+        
+        for(x; x<long; x++){
+            if(x == 0){
+                arreglo.push(0);
+            }
+            else if(x == 1){
+                arreglo.push(1);
+            }else{
+                arreglo.push(arreglo[x-1]+arreglo[x-2]);
+            }
+        }
+        return arreglo;
+    }
+
+    if(long <= 0){
+        res.send(fibonacci(20))
+    }else{
+        res.send(fibonacci(long));
+    }
+    res.send(arreglo);
+})
